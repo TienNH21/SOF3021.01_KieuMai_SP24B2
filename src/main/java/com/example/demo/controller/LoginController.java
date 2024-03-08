@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.requests.LoginRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,11 +15,8 @@ public class LoginController {
     }
 
     @PostMapping("login")
-    public String login(
-        @RequestParam("username") String un,
-        @RequestParam("password") String pwd
-    ) {
-        System.out.println(un + "-" + pwd);
+    public String login(LoginRequest request) {
+        System.out.println(request.getUsername() + "-" + request.getPassword());
         return "login";
     }
 }
