@@ -15,10 +15,10 @@
 <table>
     <thead>
     <tr>
-        <th>Mã</th>
-        <th>Tên</th>
-        <th>Trạng thái</th>
-        <th colspan="2">Thao tác</th>
+        <th>Ma</th>
+        <th>Ten</th>
+        <th>Trang thai</th>
+        <th colspan="2">Thao tac</th>
     </tr>
     </thead>
     <tbody>
@@ -28,10 +28,10 @@
             <td>${ ms.ten }</td>
             <td>${ ms.trangThai }</td>
             <td>
-                <a href="#">Update</a>
+                <a href="/mau-sac/edit/${ms.ma}">Update</a>
             </td>
             <td>
-                <a href="#">Delete</a>
+                <a href="/mau-sac/delete/${ ms.ma }">Delete</a>
             </td>
         </tr>
     </c:forEach>
