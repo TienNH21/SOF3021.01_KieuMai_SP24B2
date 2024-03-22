@@ -19,7 +19,7 @@ public class MauSac {
     private String ma;
     private String ten;
     private int trangThai;
-    private int id;
+    private Integer id;
 
     @Basic
     @Column(name = "Ma", nullable = false, length = 255)
@@ -57,7 +57,7 @@ public class MauSac {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

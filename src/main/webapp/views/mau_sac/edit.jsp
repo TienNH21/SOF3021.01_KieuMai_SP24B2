@@ -9,10 +9,10 @@
 </head>
 <body>
     <h2>Edit Form</h2>
-    <form method="POST" action="/mau-sac/update/${ ms.ma }">
+    <form method="POST" action="/mau-sac/update/${ ms.id }">
         <div>
             <label>Ma</label>
-            <input type="text" name="ma" value="${ ms.ma }" disabled />
+            <input type="text" name="ma" value="${ ms.ma }" />
         </div>
         <div>
             <label>Ten</label>

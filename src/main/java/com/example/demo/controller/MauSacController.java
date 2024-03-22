@@ -35,49 +35,34 @@ public class MauSacController {
     @PostMapping("store")
     public String store(MauSac ms)
     {
-        System.out.println(ms.getMa());
-        System.out.println(ms.getTen());
-        System.out.println(ms.getTrangThai());
-//        this.ds.add(ms);
+        ms.setId(null);
+        this.msRepo.save(ms);
         return "mau_sac/create";
     }
 
-    @GetMapping("delete/{ma}")
-    public String delete(@PathVariable("ma") String maMauSac)
+    @GetMapping("delete/{id}")
+    public String delete(@PathVariable("id") MauSac ms)
     {
-//        for (int i = 0; i < this.ds.size(); i++) {
-//            MauSac ms = this.ds.get(i);
-//            if (ms.getMa().equals(maMauSac)) {
-//                this.ds.remove(i);
-//            }
-//        }
-
+//        MauSac ms = this.msRepo.findByMa(maMauSac);
+//        this.msRepo.delete(ms);
+        this.msRepo.delete(ms);
         return "mau_sac/create";
     }
 
-    @GetMapping("edit/{ma}")
-    public String edit(@PathVariable("ma") String maMauSac, Model model)
+    @GetMapping("edit/{id}")
+    public String edit(@PathVariable("id") MauSac ms, Model model)
     {
-//        for (MauSac ms: this.ds) {
-//            if (ms.getMa().equals(maMauSac)) {
-//                model.addAttribute("ms", ms);
-//                return "mau_sac/edit"; // đường dẫn đến file jsp
-//            }
-//        }
-
-//        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
-        return "redirect:/mau-sac/index";
+        model.addAttribute("ms", ms);
+        return "mau_sac/edit";
     }
 
-    @PostMapping("/update/{ma}")
-    public String update(MauSac newValue, @PathVariable("ma") String maMauSac)
-    {
-//        for (int i = 0; i < this.ds.size(); i++) {
-//            MauSac ms = this.ds.get(i);
-//            if (ms.getMa().equals(maMauSac)) {
-//                this.ds.set(i, newValue);
-//            }
-//        }
+    @PostMapping("/update/{id}")
+    public String update(
+        MauSac newValue,
+        @PathVariable("id") MauSac oldValue
+    ) {
+        newValue.setId(oldValue.getId());
+        this.msRepo.save(newValue);
 
         return "redirect:/mau-sac/index";
     }
