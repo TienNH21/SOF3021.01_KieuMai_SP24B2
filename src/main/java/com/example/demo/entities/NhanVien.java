@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Entity
 public class NhanVien {
-    private int id;
+    private Integer id;
     private String ten;
     private String ma;
     private String tenDangNhap;
@@ -18,11 +18,11 @@ public class NhanVien {
 
     @Id
     @Column(name = "ID", nullable = false)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -81,7 +81,7 @@ public class NhanVien {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         NhanVien nhanVien = (NhanVien) o;
-        return id == nhanVien.id && Objects.equals(ten, nhanVien.ten) && Objects.equals(ma, nhanVien.ma) && Objects.equals(tenDangNhap, nhanVien.tenDangNhap) && Objects.equals(matKhau, nhanVien.matKhau) && Objects.equals(trangThai, nhanVien.trangThai);
+        return Objects.equals(id, nhanVien.id) && Objects.equals(ten, nhanVien.ten) && Objects.equals(ma, nhanVien.ma) && Objects.equals(tenDangNhap, nhanVien.tenDangNhap) && Objects.equals(matKhau, nhanVien.matKhau) && Objects.equals(trangThai, nhanVien.trangThai);
     }
 
     @Override

@@ -3,6 +3,9 @@ package com.example.demo.controller;
 import com.example.demo.entities.MauSac;
 import com.example.demo.repositories.MauSacRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +22,15 @@ public class MauSacController {
     private MauSacRepository msRepo;
 
     @GetMapping("index")
-    public String index(Model model)
-    {
-        List<MauSac> ds = this.msRepo.findAll();
-        model.addAttribute("listMS", ds);
+    public String index(
+        Model model,
+        @RequestParam(name = "limit", defaultValue = "10") int limit,
+        @RequestParam(name = "page", defaultValue = "1") int page
+    ) {
+
+        Pageable pageable = PageRequest.of(page, limit);
+        Page<MauSac> p = this.msRepo.findAll(pageable);
+        model.addAttribute("p", p);
         return "mau_sac/index";
     }
 

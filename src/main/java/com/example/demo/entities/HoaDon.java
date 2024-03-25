@@ -10,39 +10,39 @@ import java.util.Objects;
 
 @Entity
 public class HoaDon {
-    private int id;
-    private int idKh;
-    private int idNv;
+    private Integer id;
+    private Integer idKh;
+    private Integer idNv;
     private Date ngayMuaHang;
-    private int trangThai;
+    private Integer trangThai;
 
     @Id
     @Column(name = "ID", nullable = false)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     @Basic
     @Column(name = "IdKH", nullable = false)
-    public int getIdKh() {
+    public Integer getIdKh() {
         return idKh;
     }
 
-    public void setIdKh(int idKh) {
+    public void setIdKh(Integer idKh) {
         this.idKh = idKh;
     }
 
     @Basic
     @Column(name = "IdNV", nullable = false)
-    public int getIdNv() {
+    public Integer getIdNv() {
         return idNv;
     }
 
-    public void setIdNv(int idNv) {
+    public void setIdNv(Integer idNv) {
         this.idNv = idNv;
     }
 
@@ -58,11 +58,11 @@ public class HoaDon {
 
     @Basic
     @Column(name = "TrangThai", nullable = false)
-    public int getTrangThai() {
+    public Integer getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(int trangThai) {
+    public void setTrangThai(Integer trangThai) {
         this.trangThai = trangThai;
     }
 
@@ -71,7 +71,7 @@ public class HoaDon {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         HoaDon hoaDon = (HoaDon) o;
-        return id == hoaDon.id && idKh == hoaDon.idKh && idNv == hoaDon.idNv && trangThai == hoaDon.trangThai && Objects.equals(ngayMuaHang, hoaDon.ngayMuaHang);
+        return Objects.equals(id, hoaDon.id) && Objects.equals(idKh, hoaDon.idKh) && Objects.equals(idNv, hoaDon.idNv) && Objects.equals(ngayMuaHang, hoaDon.ngayMuaHang) && Objects.equals(trangThai, hoaDon.trangThai);
     }
 
     @Override

@@ -9,18 +9,18 @@ import java.util.Objects;
 
 @Entity
 public class SanPham {
-    private int id;
+    private Integer id;
     private String ma;
     private String ten;
-    private int trangThai;
+    private Integer trangThai;
 
     @Id
     @Column(name = "ID", nullable = false)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -46,11 +46,11 @@ public class SanPham {
 
     @Basic
     @Column(name = "TrangThai", nullable = false)
-    public int getTrangThai() {
+    public Integer getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(int trangThai) {
+    public void setTrangThai(Integer trangThai) {
         this.trangThai = trangThai;
     }
 
@@ -59,7 +59,7 @@ public class SanPham {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SanPham sanPham = (SanPham) o;
-        return id == sanPham.id && trangThai == sanPham.trangThai && Objects.equals(ma, sanPham.ma) && Objects.equals(ten, sanPham.ten);
+        return Objects.equals(id, sanPham.id) && Objects.equals(ma, sanPham.ma) && Objects.equals(ten, sanPham.ten) && Objects.equals(trangThai, sanPham.trangThai);
     }
 
     @Override

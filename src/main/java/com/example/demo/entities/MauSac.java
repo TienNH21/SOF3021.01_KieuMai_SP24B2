@@ -4,22 +4,25 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Objects;
 
 @Entity
-@Setter @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 public class MauSac {
+    private Integer id;
     private String ma;
     private String ten;
-    private int trangThai;
-    private Integer id;
+    private Integer trangThai;
+
+    @Id
+    @Column(name = "ID", nullable = false)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     @Basic
     @Column(name = "Ma", nullable = false, length = 255)
@@ -43,22 +46,12 @@ public class MauSac {
 
     @Basic
     @Column(name = "TrangThai", nullable = false)
-    public int getTrangThai() {
+    public Integer getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(int trangThai) {
+    public void setTrangThai(Integer trangThai) {
         this.trangThai = trangThai;
-    }
-
-    @Id
-    @Column(name = "ID", nullable = false)
-    public int getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     @Override
@@ -66,7 +59,7 @@ public class MauSac {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MauSac mauSac = (MauSac) o;
-        return trangThai == mauSac.trangThai && id == mauSac.id && Objects.equals(ma, mauSac.ma) && Objects.equals(ten, mauSac.ten);
+        return Objects.equals(id, mauSac.id) && Objects.equals(ma, mauSac.ma) && Objects.equals(ten, mauSac.ten) && Objects.equals(trangThai, mauSac.trangThai);
     }
 
     @Override

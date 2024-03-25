@@ -9,19 +9,19 @@ import java.util.Objects;
 
 @Entity
 public class KhachHang {
-    private int id;
+    private Integer id;
     private String ma;
     private String ten;
     private String sdt;
-    private int trangThai;
+    private Integer trangThai;
 
     @Id
     @Column(name = "ID", nullable = false)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -57,11 +57,11 @@ public class KhachHang {
 
     @Basic
     @Column(name = "TrangThai", nullable = false)
-    public int getTrangThai() {
+    public Integer getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(int trangThai) {
+    public void setTrangThai(Integer trangThai) {
         this.trangThai = trangThai;
     }
 
@@ -70,7 +70,7 @@ public class KhachHang {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         KhachHang khachHang = (KhachHang) o;
-        return id == khachHang.id && trangThai == khachHang.trangThai && Objects.equals(ma, khachHang.ma) && Objects.equals(ten, khachHang.ten) && Objects.equals(sdt, khachHang.sdt);
+        return Objects.equals(id, khachHang.id) && Objects.equals(ma, khachHang.ma) && Objects.equals(ten, khachHang.ten) && Objects.equals(sdt, khachHang.sdt) && Objects.equals(trangThai, khachHang.trangThai);
     }
 
     @Override

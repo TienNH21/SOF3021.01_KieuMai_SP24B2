@@ -9,52 +9,52 @@ import java.util.Objects;
 
 @Entity
 public class SanPhamChiTiet {
-    private int id;
-    private int idMauSac;
-    private int idKichThuoc;
-    private int idSanPham;
+    private Integer id;
+    private Integer idMauSac;
+    private Integer idKichThuoc;
+    private Integer idSanPham;
     private String maSpct;
-    private int soLuong;
-    private double donGia;
-    private int trangThai;
+    private Integer soLuong;
+    private Double donGia;
+    private Integer trangThai;
 
     @Id
     @Column(name = "ID", nullable = false)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     @Basic
     @Column(name = "IdMauSac", nullable = false)
-    public int getIdMauSac() {
+    public Integer getIdMauSac() {
         return idMauSac;
     }
 
-    public void setIdMauSac(int idMauSac) {
+    public void setIdMauSac(Integer idMauSac) {
         this.idMauSac = idMauSac;
     }
 
     @Basic
     @Column(name = "IdKichThuoc", nullable = false)
-    public int getIdKichThuoc() {
+    public Integer getIdKichThuoc() {
         return idKichThuoc;
     }
 
-    public void setIdKichThuoc(int idKichThuoc) {
+    public void setIdKichThuoc(Integer idKichThuoc) {
         this.idKichThuoc = idKichThuoc;
     }
 
     @Basic
     @Column(name = "IdSanPham", nullable = false)
-    public int getIdSanPham() {
+    public Integer getIdSanPham() {
         return idSanPham;
     }
 
-    public void setIdSanPham(int idSanPham) {
+    public void setIdSanPham(Integer idSanPham) {
         this.idSanPham = idSanPham;
     }
 
@@ -70,31 +70,31 @@ public class SanPhamChiTiet {
 
     @Basic
     @Column(name = "SoLuong", nullable = false)
-    public int getSoLuong() {
+    public Integer getSoLuong() {
         return soLuong;
     }
 
-    public void setSoLuong(int soLuong) {
+    public void setSoLuong(Integer soLuong) {
         this.soLuong = soLuong;
     }
 
     @Basic
     @Column(name = "DonGia", nullable = false, precision = 0)
-    public double getDonGia() {
+    public Double getDonGia() {
         return donGia;
     }
 
-    public void setDonGia(double donGia) {
+    public void setDonGia(Double donGia) {
         this.donGia = donGia;
     }
 
     @Basic
     @Column(name = "TrangThai", nullable = false)
-    public int getTrangThai() {
+    public Integer getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(int trangThai) {
+    public void setTrangThai(Integer trangThai) {
         this.trangThai = trangThai;
     }
 
@@ -103,7 +103,7 @@ public class SanPhamChiTiet {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SanPhamChiTiet that = (SanPhamChiTiet) o;
-        return id == that.id && idMauSac == that.idMauSac && idKichThuoc == that.idKichThuoc && idSanPham == that.idSanPham && soLuong == that.soLuong && Double.compare(that.donGia, donGia) == 0 && trangThai == that.trangThai && Objects.equals(maSpct, that.maSpct);
+        return Objects.equals(id, that.id) && Objects.equals(idMauSac, that.idMauSac) && Objects.equals(idKichThuoc, that.idKichThuoc) && Objects.equals(idSanPham, that.idSanPham) && Objects.equals(maSpct, that.maSpct) && Objects.equals(soLuong, that.soLuong) && Objects.equals(donGia, that.donGia) && Objects.equals(trangThai, that.trangThai);
     }
 
     @Override
