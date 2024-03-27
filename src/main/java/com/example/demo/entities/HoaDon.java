@@ -11,6 +11,8 @@ import java.util.Objects;
 @Entity
 public class HoaDon {
     private Integer id;
+
+
     private Integer idKh;
     private Integer idNv;
     private Date ngayMuaHang;
