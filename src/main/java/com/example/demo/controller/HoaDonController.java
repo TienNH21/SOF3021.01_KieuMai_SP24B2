@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("hoa-don")
@@ -22,8 +23,14 @@ public class HoaDonController {
     private HoaDonRepository hdRepo;
 
     @GetMapping("index")
-    public String index(Model model) {
-        List<ThongTinHoaDon> ds = this.hdRepo.loadAll();
+    public String index(Model model, @RequestParam("keyword") Optional<String> keywordOpt) {
+        List<ThongTinHoaDon> ds;
+        if (keywordOpt.isEmpty()) {
+            ds = this.hdRepo.loadAll();
+        } else {
+            String s = "%" + keywordOpt.get() + "%";
+            ds = this.hdRepo.findByKeyword(s, s);
+        }
         model.addAttribute("ds", ds);
         return "hoa_don/index";
     }

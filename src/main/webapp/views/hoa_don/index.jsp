@@ -13,6 +13,17 @@
     <title>Document</title>
 </head>
 <body>
+
+<form method="GET" action="/hoa-don/index">
+    <div>
+        <label>Tu khoa</label>
+        <input type="text" name="keyword" />
+    </div>
+    <div>
+        <button>Tim kiem</button>
+    </div>
+</form>
+
 <table>
     <thead>
     <tr>
